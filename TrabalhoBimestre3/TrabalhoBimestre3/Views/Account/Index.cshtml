@@ -1,0 +1,9 @@
+﻿@model List<TrabalhoBimestre3.Models.Usuario>
+@{
+    ViewBag.Title = "Index";
+}
+@foreach (var usuario in Model)
+{
+<p>Html.LabelForModel(usuario.Nome);</p>
+<p>Html.LabelForModel(usuario.Senha);</p>
+}
