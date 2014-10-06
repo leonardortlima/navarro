@@ -9,13 +9,15 @@ namespace TrabalhoBimestre3.Models
 {
     public class Usuario
     {
+        [DisplayName("ID do usuario")]
+        public int Id { get; set; }
+
         [Required]
         [MinLength(3)]
         [DisplayName("Nome completo")]
         public String NomeCompleto { get; set; }
 
         [Required]
-        [Range(typeof(DateTime), "1/1/1900", "1/1/2015", ErrorMessage = "Value for {0} must be between {1} and {2}")]
         [DisplayName("Data de nascimento")]
         public String DataNascimento { get; set; }
 

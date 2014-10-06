@@ -1,0 +1,53 @@
+﻿@model TrabalhoBimestre3.Models.Usuario
+
+@{
+    ViewBag.Title = "ApagaUsuario";
+}
+
+<h2>Apagar usuario</h2>
+
+<h3>Deseja deletar o usuario?</h3>
+<fieldset>
+    <legend>Usuario</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NomeCompleto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NomeCompleto)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DataNascimento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DataNascimento)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NomeUsuario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NomeUsuario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Senha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Senha)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ConfirmaSenha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ConfirmaSenha)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+}

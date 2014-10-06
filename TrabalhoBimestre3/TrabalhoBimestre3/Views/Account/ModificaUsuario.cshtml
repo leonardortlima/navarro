@@ -1,58 +1,69 @@
 ﻿@model TrabalhoBimestre3.Models.Usuario
 
-@using (Html.BeginForm("Cadastro", "Home", null))
-@Html.ValidationSummary(true)
-{
+@{
+    ViewBag.Title = "ModificaUsuario";
+}
+
+<h2>Editar usuario</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
     <fieldset>
-	    <legend>Cadastro de usuario</legend>
+        <legend>Usuario</legend>
+
+        @Html.HiddenFor(model => model.Id)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.NomeCompleto)
         </div>
-       
-		<div class="editor-field">
-			@Html.EditorFor(model => model.NomeCompleto)
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NomeCompleto)
             @Html.ValidationMessageFor(model => model.NomeCompleto)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.DataNascimento)
         </div>
-       
-		<div class="editor-field">
-			@Html.EditorFor(model => model.DataNascimento)
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DataNascimento)
             @Html.ValidationMessageFor(model => model.DataNascimento)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.NomeUsuario)
         </div>
-       
-		<div class="editor-field">
-			@Html.EditorFor(model => model.NomeUsuario)
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NomeUsuario)
             @Html.ValidationMessageFor(model => model.NomeUsuario)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Senha)
         </div>
-       
-		<div class="editor-field">
-			@Html.EditorFor(model => model.Senha)
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Senha)
             @Html.ValidationMessageFor(model => model.Senha)
         </div>
 
-       <div class="editor-label">
+        <div class="editor-label">
             @Html.LabelFor(model => model.ConfirmaSenha)
         </div>
-       
-		<div class="editor-field">
-			@Html.EditorFor(model => model.ConfirmaSenha)
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ConfirmaSenha)
             @Html.ValidationMessageFor(model => model.ConfirmaSenha)
         </div>
-			
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
     </fieldset>
-    <p>
-        <input type="submit" value="Enviar" />
-    </p>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }

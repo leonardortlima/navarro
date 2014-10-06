@@ -9,39 +9,58 @@ namespace TrabalhoBimestre3.Controllers
 {
     public class AccountController : Controller
     {
-        int id = 1;
-        Dictionary<int,Usuario> usuarios;
+        private static UsuarioManager usuarioManager = new UsuarioManager();
 
         //
         // GET: /Account/
-
+        [HttpGet]
         public ActionResult Index()
         {
-            return View(this.usuarios);
+            return View(usuarioManager.Usuarios);
         }
 
-        public ActionResult Adiciona(Usuario usuario)
+        // GET: /Account/AdicionaUsuario
+        [HttpGet]
+        public ActionResult AdicionaUsuario()
         {
-            if (this.usuarios == null)
-            {
-                this.usuarios = new Dictionary<int,Usuario>();
-            }
-
-            usuarios.Add(id,usuario);
-            id++;
-
-            return RedirectToAction("Index");
+            return View();
         }
 
-        public ActionResult Modifica(int id, Usuario usuario)
+        // POST: /Account/AdicionaUsuario
+        [HttpPost]
+        public ActionResult AdicionaUsuario(Usuario usuario)
         {
-            this.usuarios.Add(id, usuario);
-            return RedirectToAction("Index");
+            usuarioManager.AdicionaUsuario(usuario);
+            return View();
         }
 
-        public ActionResult Apaga(int id)
+        // GET: /Account/ModificaUsuario
+        [HttpGet]
+        public ActionResult ModificaUsuario(int id)
         {
-            this.usuarios.Remove(id);
+            return View(usuarioManager.BuscaUsuario(id));
+        }
+
+        // POST: /Account/ModificaUsuario
+        [HttpPost]
+        public ActionResult ModificaUsuario(Usuario usuario)
+        {
+            usuarioManager.ModificaUsuario(usuario);
+            return View(usuarioManager.BuscaUsuario(usuario.Id));
+        }
+
+        // GET: /Account/ApagaUsuario
+        [HttpGet]
+        public ActionResult ApagaUsuario(int id)
+        {
+            return View(usuarioManager.BuscaUsuario(id));
+        }
+
+        // POST: /Account/ApagaUsuario
+        [HttpPost]
+        public ActionResult ApagaUsuario(Usuario usuario)
+        {
+            usuarioManager.DeletaUsuario(usuario);
             return RedirectToAction("Index");
         }
 
