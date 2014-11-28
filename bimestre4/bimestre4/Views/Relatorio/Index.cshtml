@@ -1,0 +1,26 @@
+﻿@model List<bimestre4.Models.RankModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table>
+        @foreach (var rank in Model)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(listItem => rank.vaga.NomeVaga)
+                </th>
+            </tr>
+            foreach (var candidato in rank.candidatos)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(listItem => candidato.NomeCandidato)
+                        @Html.DisplayFor(listItem => candidato.Pontuacao)
+                    </td>
+                </tr>
+            }
+        }
+</table>

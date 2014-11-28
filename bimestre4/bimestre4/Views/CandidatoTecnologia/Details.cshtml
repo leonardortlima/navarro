@@ -1,0 +1,29 @@
+﻿@model bimestre4.Models.CandidatoTecnologia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CandidatoTecnologia</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tecnologia.NomeTecnologia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tecnologia.NomeTecnologia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Candidato.NomeCandidato)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Candidato.NomeCandidato)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

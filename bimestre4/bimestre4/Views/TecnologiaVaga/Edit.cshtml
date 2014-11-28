@@ -1,0 +1,51 @@
+﻿@model bimestre4.Models.TecnologiaVaga
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>TecnologiaVaga</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TecnologiaID, "Tecnologia")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("TecnologiaID", String.Empty)
+            @Html.ValidationMessageFor(model => model.TecnologiaID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VagaID, "Vaga")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("VagaID", String.Empty)
+            @Html.ValidationMessageFor(model => model.VagaID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Peso)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Peso)
+            @Html.ValidationMessageFor(model => model.Peso)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

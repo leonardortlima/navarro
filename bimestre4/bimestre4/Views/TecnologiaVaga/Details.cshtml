@@ -1,0 +1,36 @@
+﻿@model bimestre4.Models.TecnologiaVaga
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>TecnologiaVaga</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tecnologia.NomeTecnologia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tecnologia.NomeTecnologia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Vaga.NomeVaga)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Vaga.NomeVaga)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Peso)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Peso)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

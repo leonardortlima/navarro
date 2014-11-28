@@ -1,0 +1,72 @@
+﻿@model bimestre4.Models.ViewModel<bimestre4.Models.Vaga, bimestre4.Models.TecnologiaVaga, bimestre4.Models.Tecnologia>
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Vaga</legend>
+
+        @Html.HiddenFor(model => model.genericModel.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.genericModel.NomeVaga)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.genericModel.NomeVaga)
+            @Html.ValidationMessageFor(model => model.genericModel.NomeVaga)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.genericModel.DescVaga)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.genericModel.DescVaga)
+            @Html.ValidationMessageFor(model => model.genericModel.DescVaga)
+        </div>
+
+        <div class="editor-field">
+            <table>
+                @{
+
+                    foreach (var tecnologia in Model.FullList)
+                    {
+                    <tr>
+                        <td>
+                            <input 
+                                    type="checkbox" 
+                                    name="tecnologiasSelecionadas" 
+                                    value="@tecnologia.ID" 
+                                    @(Html.Raw(Model.List.Any(x=> x.TecnologiaID == tecnologia.ID) ? "checked=\"checked\"" : "")) />
+                                    @tecnologia.ID @tecnologia.NomeTecnologia 
+                        </td>
+                        <td>
+                            <input
+                                type="text"
+                                name="pesos"
+                                value="@(Html.Raw(Model.List.Any(x=> x.TecnologiaID == tecnologia.ID) ? Model.List.Find(x=> x.TecnologiaID == tecnologia.ID).Peso : 0))" />
+                        </td>
+                    </tr>
+                    }
+                }
+            </table>
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

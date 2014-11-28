@@ -1,0 +1,29 @@
+﻿@model bimestre4.Models.Tecnologia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tecnologia</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NomeTecnologia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NomeTecnologia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DescTecnologia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DescTecnologia)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

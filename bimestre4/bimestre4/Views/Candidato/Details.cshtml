@@ -1,0 +1,45 @@
+﻿@model bimestre4.Models.ViewModel<bimestre4.Models.Candidato,bimestre4.Models.CandidatoTecnologia,bimestre4.Models.Tecnologia>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Candidato</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.genericModel.NomeCandidato)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.genericModel.NomeCandidato)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.genericModel.Telefone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.genericModel.Telefone)
+    </div>
+    <div class="display-field">
+    <table>
+        <tr>
+            <th>Tecnologias</th>
+        </tr>
+        @foreach (var item in Model.List)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(listItem => item.Tecnologia.NomeTecnologia)
+                </td>
+            </tr>
+        }
+    </table>
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.genericModel.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
